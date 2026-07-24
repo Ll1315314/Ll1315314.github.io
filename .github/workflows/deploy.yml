@@ -1,0 +1,49 @@
+# 把网站自动构建并部署到 GitHub Pages。
+# 每次 push 到 main 分支就会自动跑，几分钟后网站更新。
+# 你不需要改这个文件（除非改了默认分支名）。
+name: Deploy site to Pages
+
+on:
+  push:
+    branches: [main]      # 若你的默认分支叫 master，改成 [master]
+  workflow_dispatch:       # 允许在 Actions 页面手动触发
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 只保留最新一次部署，取消进行中的旧部署
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0     # 为 lastUpdated 拉取完整 git 历史
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: npm ci
+      - name: Build with VitePress
+        run: npm run build
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/.vitepress/dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

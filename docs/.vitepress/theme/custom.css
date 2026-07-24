@@ -1,0 +1,87 @@
+/* ────────────────────────────────────────────────────────────
+   马卡龙配色 —— 柔和粉 / 薰衣草 / 薄荷的背景渐变，
+   强调色用可读性足够的莓果玫瑰。想换色只改这里的变量。
+   浅色是主角；深色给一套呼应的深梅色，保证两种主题都好看。
+   ──────────────────────────────────────────────────────────── */
+
+:root {
+  /* 强调色（链接、按钮、hover）——莓果玫瑰，深一点以保证在浅底上可读 */
+  --vp-c-brand-1: #c2557f;
+  --vp-c-brand-2: #cf6a90;
+  --vp-c-brand-3: #dd85a6;
+  --vp-c-brand-soft: rgba(207, 106, 144, 0.14);
+
+  /* 马卡龙背景层 */
+  --vp-c-bg: #fdf4f7;          /* 主背景：奶油腮红粉 */
+  --vp-c-bg-alt: #f4eef8;      /* 导航 / 侧栏：薰衣草 */
+  --vp-c-bg-soft: #fbeef3;     /* 卡片 / 代码块：浅粉 */
+  --vp-c-bg-elv: #fffafc;
+
+  /* 柔化分隔线，别用生硬的灰 */
+  --vp-c-divider: #f0dbe6;
+  --vp-c-border: #eed3e0;
+  --vp-c-gutter: #f0dbe6;
+
+  /* 首页 hero 名字用马卡龙彩虹渐变 */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(120deg, #e28fb2 15%, #a99be0 55%, #7fcaad);
+  --vp-home-hero-image-background-image: linear-gradient(
+    -45deg,
+    rgba(226, 143, 178, 0.5),
+    rgba(169, 155, 224, 0.5),
+    rgba(127, 202, 173, 0.5)
+  );
+  --vp-home-hero-image-filter: blur(52px);
+}
+
+.dark {
+  --vp-c-brand-1: #f0a6c4;
+  --vp-c-brand-2: #eb96b8;
+  --vp-c-brand-3: #e086ab;
+  --vp-c-brand-soft: rgba(240, 166, 196, 0.16);
+
+  --vp-c-bg: #201a24;          /* 深梅色，和粉调呼应 */
+  --vp-c-bg-alt: #271f2b;
+  --vp-c-bg-soft: #2a2130;
+  --vp-c-bg-elv: #2a2130;
+
+  --vp-c-divider: #3a2f3f;
+  --vp-c-border: #3a2f3f;
+  --vp-c-gutter: #17131a;
+
+  --vp-home-hero-name-background: linear-gradient(120deg, #f2a8c6 15%, #bca9ee 55%, #93dcb9);
+}
+
+/* 整页一层极淡的马卡龙渐变，让「背景色系」真的是一片糖果色而不是纯色块 */
+body {
+  background-image: linear-gradient(165deg, #fdf0f5 0%, #f2f4fb 48%, #eef9f2 100%);
+  background-attachment: fixed;
+}
+.dark body {
+  background-image: linear-gradient(165deg, #221a26 0%, #1b1c23 50%, #191f1c 100%);
+}
+
+/* 正文阅读宽度略收窄，长文更好读 */
+.vp-doc {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 首页 feature 卡片：柔和边框 + 轻微悬停上浮 */
+.VPFeature {
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+.VPFeature:hover {
+  transform: translateY(-2px);
+  border-color: var(--vp-c-brand-2);
+  box-shadow: 0 8px 24px rgba(194, 85, 127, 0.12);
+}
+
+/* 标题字距微调，观感更现代 */
+.vp-doc h1 {
+  letter-spacing: -0.01em;
+}
+.vp-doc h2 {
+  margin-top: 2.2em;
+}
