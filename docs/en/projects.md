@@ -37,7 +37,7 @@ A monitoring system that must run frequently for the long term without tripping 
 - **Front/back resource isolation** so a busy background job can't starve interactive traffic sharing the same request queue.
 - **Redisson watchdog distributed lock** so only one instance runs a given task at a time under multi-instance deployment.
 
-📖 Written up on the blog (Chinese): [Refactoring to dynamic cron](/blog/2026-07-22-dynamic-cron-scheduler)
+📖 Written up on the blog (Chinese): [Refactoring to dynamic cron](/blog/2026-07-24-dynamic-cron-scheduler)
 
 ---
 

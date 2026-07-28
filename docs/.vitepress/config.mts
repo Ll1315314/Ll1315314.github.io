@@ -56,12 +56,12 @@ export default defineConfig({
               text: '文章',
               items: [
                 { text: '全部文章', link: '/blog/' },
+                { text: '用真实订单做 Ground Truth', link: '/blog/2026-07-28-ground-truth-conversion' },
+                { text: 'dHash 前置去重降本 8 倍', link: '/blog/2026-07-27-dhash-prefilter' },
+                { text: '前台搜索为什么会卡：下游额度隔离', link: '/blog/2026-07-26-rate-limit-isolation' },
+                { text: '让大模型自己写 SQL 又不越权', link: '/blog/2026-07-25-safe-sql-agent' },
                 { text: '用公开页替代付费接口做数据快照', link: '/blog/2026-07-24-public-page-scraping' },
-                { text: '把定时监控重构成动态 Cron', link: '/blog/2026-07-22-dynamic-cron-scheduler' },
-                { text: '前台搜索为什么会卡：下游额度隔离', link: '/blog/2026-06-16-rate-limit-isolation' },
-                { text: '让大模型自己写 SQL 又不越权', link: '/blog/2026-06-04-safe-sql-agent' },
-                { text: '用真实订单做 Ground Truth', link: '/blog/2026-05-21-ground-truth-conversion' },
-                { text: 'dHash 前置去重降本 8 倍', link: '/blog/2026-04-17-dhash-prefilter' }
+                { text: '把定时监控重构成动态 Cron', link: '/blog/2026-07-24-dynamic-cron-scheduler' }
               ]
             }
           ]

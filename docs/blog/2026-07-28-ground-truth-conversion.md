@@ -1,6 +1,6 @@
 ---
 title: 别让 AI 猜「成没成单」——用真实订单做 Ground Truth
-date: 2026-05-21
+date: 2026-07-28
 ---
 
 # 别让 AI 猜「成没成单」——用真实订单做 Ground Truth

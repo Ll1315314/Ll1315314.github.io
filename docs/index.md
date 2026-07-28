@@ -33,7 +33,7 @@ features:
 ## 最近在写
 
 - [用公开页 `INITIAL_STATE` 替代付费接口做数据快照](/blog/2026-07-24-public-page-scraping) —— 一次把第三方接口成本打到 0 的降本实践，以及它的边界在哪。
-- [把定时监控从「每分钟 tick」重构成动态 Cron](/blog/2026-07-22-dynamic-cron-scheduler) —— 前端改完即时生效、不重启，还要在多实例下不重复执行。
+- [把定时监控从「每分钟 tick」重构成动态 Cron](/blog/2026-07-24-dynamic-cron-scheduler) —— 前端改完即时生效、不重启，还要在多实例下不重复执行。
 
 前往 [博客](/blog/) 看全部文章，或去 [作品集](/projects) 看做过的东西。
 
