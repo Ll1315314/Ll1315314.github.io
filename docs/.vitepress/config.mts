@@ -21,7 +21,7 @@ export default defineConfig({
   title: NAME,
   description: `${NAME} 的个人博客与作品集 · Personal blog & portfolio`,
   cleanUrls: true,
-  lastUpdated: true,
+  lastUpdated: false,
   head: [
     ['meta', { name: 'author', content: NAME }],
     ['meta', { name: 'theme-color', content: '#1f6f6b' }],
