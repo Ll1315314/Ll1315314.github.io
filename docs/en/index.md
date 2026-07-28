@@ -32,7 +32,9 @@ features:
 
 ## Latest
 
-- [Replacing a paid API with public-page `INITIAL_STATE`](/en/blog/2026-07-hello) — coming soon in English. Read the Chinese version [here](/blog/2026-07-24-public-page-scraping).
+- [Don't let AI guess "did they buy?" — use real orders as ground truth](/en/blog/2026-07-28-ground-truth-conversion)
+- [Cutting vision-model inference cost 8× with an O(1) perceptual hash](/en/blog/2026-07-27-dhash-prefilter)
+- [Why front-end search stalls — a downstream-quota isolation story](/en/blog/2026-07-26-rate-limit-isolation)
 
 Head to the [blog](/en/blog/) for all posts, or [projects](/en/projects) to see what I've built.
 

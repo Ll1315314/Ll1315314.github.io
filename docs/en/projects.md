@@ -24,7 +24,7 @@ Migrated interaction-metric collection from a paid third-party API to **free pub
 - **Systematically disproving self-built content scraping**: after ruling out captcha, residential IP, account age, and TLS/JA3 fingerprint spoofing (verified working with `curl_cffi`) and still getting blocked, I located the root cause in the request-behavior layer of non-browser clients — and concluded to stop investing there.
 - A well-evidenced "no" is as valuable as a successful "yes."
 
-📖 Written up on the blog (Chinese): [Public-page snapshots](/blog/2026-07-24-public-page-scraping)
+📖 Written up on the blog: [Public-page snapshots](/en/blog/2026-07-24-public-page-scraping)
 
 ---
 
@@ -37,7 +37,7 @@ A monitoring system that must run frequently for the long term without tripping 
 - **Front/back resource isolation** so a busy background job can't starve interactive traffic sharing the same request queue.
 - **Redisson watchdog distributed lock** so only one instance runs a given task at a time under multi-instance deployment.
 
-📖 Written up on the blog (Chinese): [Refactoring to dynamic cron](/blog/2026-07-24-dynamic-cron-scheduler)
+📖 Written up on the blog: [Refactoring to dynamic cron](/en/blog/2026-07-24-dynamic-cron-scheduler)
 
 ---
 

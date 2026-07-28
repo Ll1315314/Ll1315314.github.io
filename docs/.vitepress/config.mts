@@ -97,6 +97,12 @@ export default defineConfig({
               text: 'Posts',
               items: [
                 { text: 'All posts', link: '/en/blog/' },
+                { text: 'Real orders as conversion ground truth', link: '/en/blog/2026-07-28-ground-truth-conversion' },
+                { text: 'An O(1) perceptual hash cuts vision cost 8×', link: '/en/blog/2026-07-27-dhash-prefilter' },
+                { text: 'Why front-end search stalls: quota isolation', link: '/en/blog/2026-07-26-rate-limit-isolation' },
+                { text: 'Letting the model write SQL, safely', link: '/en/blog/2026-07-25-safe-sql-agent' },
+                { text: 'Public-page INITIAL_STATE instead of a paid API', link: '/en/blog/2026-07-24-public-page-scraping' },
+                { text: 'Per-minute tick scheduler → dynamic cron', link: '/en/blog/2026-07-24-dynamic-cron-scheduler' },
                 { text: 'Hello — about this site', link: '/en/blog/2026-07-hello' }
               ]
             }
