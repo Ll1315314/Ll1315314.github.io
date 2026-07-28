@@ -5,3 +5,5 @@ docs/.vitepress/cache
 .DS_Store
 .env
 .env.local
+
+.idea/

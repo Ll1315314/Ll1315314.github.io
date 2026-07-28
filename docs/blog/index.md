@@ -10,6 +10,18 @@
 - **07-22** · [把定时监控从「每分钟 tick」重构成动态 Cron](/blog/2026-07-22-dynamic-cron-scheduler)
   <br><small>前端改完即时生效、不重启，还要在多实例部署下不重复执行。</small>
 
+- **06-16** · [前台搜索为什么会「卡」——一次下游额度隔离的排查](/blog/2026-06-16-rate-limit-isolation)
+  <br><small>想靠加并发解决卡顿，查到最后发现瓶颈根本不在并发度，而在共享的下游 API 额度。</small>
+
+- **06-04** · [让大模型自己写 SQL 又不越权——一个客服数据分析 Agent 的设计](/blog/2026-06-04-safe-sql-agent)
+  <br><small>Tool-Use + 受限 SQL + SSE：难点不是让它会查，而是安全地查、别烧钱、别乱编。</small>
+
+- **05-21** · [别让 AI 猜「成没成单」——用真实订单做 Ground Truth](/blog/2026-05-21-ground-truth-conversion)
+  <br><small>能拿到真值的地方就别让模型猜，AI 只做没有真值的软判断。</small>
+
+- **04-17** · [用一个 O(1) 的感知哈希，把视觉大模型的推理成本降 8 倍](/blog/2026-04-17-dhash-prefilter)
+  <br><small>高频截图里绝大多数帧没变化，用 dHash 前置去重挡掉大部分昂贵的模型调用。</small>
+
 ---
 
 <small>想加新文章？在 <code>docs/blog/</code> 下新建一个 <code>.md</code> 文件，再回到这里加一行链接就行。写法见仓库 README。</small>
