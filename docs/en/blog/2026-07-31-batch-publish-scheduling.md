@@ -205,6 +205,34 @@ Poll it; proceed only once it reads greater than zero.
 
 The same thinking applies to waiting for uploads: rather than waiting for a loading indicator to disappear, it requires **two consecutive samples with an unchanged count**. Mid-upload the DOM item count can momentarily equal the target (placeholders render first), and proceeding then would submit empty files.
 
+### Postscript: three days later, the page was redesigned
+
+Three days after writing this, the platform shipped a redesign.
+
+"Bulk upload video" and "Bulk captions" used to be two separate cards (`.fbp-card--file` / `.fbp-card--text`). They became a small **"bulk" button in the column header** of the per-device table — both columns sharing the class `.fbp-col-batch`, distinguishable only by the `title` attribute. The "unified settings" dropdown gained a wrapper element, and the piece of copy I used to detect "are we already in per-device mode" **disappeared from the page entirely**.
+
+All three broke. The fix took 14 lines:
+
+```js
+const candidates = [
+  page.locator(`button.fbp-col-batch[title="${conf.title}"]`),   // new layout
+  page.locator(`${conf.oldCard} .fbp-card__btn`),                // old layout
+  page.locator('.fbp-col-head').filter({ hasText: conf.colLabel }).locator('.fbp-col-batch').first()  // fall back to header text
+]
+for (const btn of candidates) {
+  if (await btn.count() > 0) { await btn.first().click(); return dialogByTitle(page, conf.title) }
+}
+throw new Error(`Can't find the entry button for "${conf.title}" — the page may have changed again`)
+```
+
+Likewise, the "already in per-device mode" check moved from **matching a piece of copy** to **checking whether the table element exists** — copy gets rewritten by product, structure is comparatively stable.
+
+But what actually kept this to 14 lines wasn't clever selectors. It was that the original failure mode was **"throw and stop," not "not found, skip it."**
+
+Imagine the other implementation: `if (btn) btn.click()`, silently skipping when the button is missing. On redesign day the script would have **run all the way through**, printed a tidy six-step progress log, and produced a table with **no videos and no captions** — something I'd only catch when looking at the screenshot, or worse, not catch before clicking Publish.
+
+> Surviving a redesign isn't about writing selectors that always match. It's about **whether the code speaks up when they don't.**
+
 ## 8. It never clicks "Publish"
 
 When the script finishes, it prints:

@@ -203,6 +203,34 @@ const readSelected = () => page.evaluate(() => {
 
 同样的思路也用在等上传完成上：不是等某个 loading 消失，而是**连续两次采样数量不变**才算稳定——因为上传中途 DOM 里的条目数可能瞬时等于目标值（占位符先渲染出来），此时往下走就会传空文件。
 
+### 后记：三天后，页面真的改版了
+
+这篇写完第三天，平台改版了。
+
+原来「批量上传视频」和「批量文案」各是一张独立卡片（`.fbp-card--file` / `.fbp-card--text`），改版后变成了分批表格**列头上的一个「批量」小按钮**——两列共用同一个类名 `.fbp-col-batch`，只能靠 `title` 属性区分。同时「统一设置」下拉多了层容器，而我原来用来判断「是不是已经切到分批模式」的那句文案，在新页面上**整个消失了**。
+
+三处全断。适配花了 14 行：
+
+```js
+const candidates = [
+  page.locator(`button.fbp-col-batch[title="${conf.title}"]`),   // 新版
+  page.locator(`${conf.oldCard} .fbp-card__btn`),                // 老版
+  page.locator('.fbp-col-head').filter({ hasText: conf.colLabel }).locator('.fbp-col-batch').first()  // 按列头文字兜底
+]
+for (const btn of candidates) {
+  if (await btn.count() > 0) { await btn.first().click(); return dialogByTitle(page, conf.title) }
+}
+throw new Error(`找不到「${conf.title}」的入口按钮，VMOS 页面可能又改版了`)
+```
+
+同理，「已切到分批模式」的判据也从**找一句文案**换成了**找表格元素在不在**——文案会被产品改，结构相对稳。
+
+真正让这次适配只花 14 行的，不是这些选择器写得多聪明，而是**它当初的失败方式是「报错停下」，不是「找不到就跳过」**。
+
+设想另一种写法：找不到批量上传按钮就 `if (btn) btn.click()` 静默跳过。那么改版当天，脚本会**一路跑到底**，打印出漂亮的 6 步进度，然后填出一张**没有视频、没有文案的空表**——而我要等到看截图时才发现，或者更糟，随手点了发布。
+
+> 抗改版靠的不是选择器写得准，而是**选不中的时候会不会喊**。
+
 ## 八、它绝不点「发布」
 
 整个脚本跑完，最后打印的是：
