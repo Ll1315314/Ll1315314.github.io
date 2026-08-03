@@ -56,6 +56,7 @@ export default defineConfig({
               text: '文章',
               items: [
                 { text: '全部文章', link: '/blog/' },
+                { text: '批量发布的难点是记账：排期设计', link: '/blog/2026-07-31-batch-publish-scheduling' },
                 { text: '用真实订单做 Ground Truth', link: '/blog/2026-07-28-ground-truth-conversion' },
                 { text: 'dHash 前置去重降本 8 倍', link: '/blog/2026-07-27-dhash-prefilter' },
                 { text: '前台搜索为什么会卡：下游额度隔离', link: '/blog/2026-07-26-rate-limit-isolation' },
@@ -97,6 +98,7 @@ export default defineConfig({
               text: 'Posts',
               items: [
                 { text: 'All posts', link: '/en/blog/' },
+                { text: 'Batch publishing is a bookkeeping problem', link: '/en/blog/2026-07-31-batch-publish-scheduling' },
                 { text: 'Real orders as conversion ground truth', link: '/en/blog/2026-07-28-ground-truth-conversion' },
                 { text: 'An O(1) perceptual hash cuts vision cost 8×', link: '/en/blog/2026-07-27-dhash-prefilter' },
                 { text: 'Why front-end search stalls: quota isolation', link: '/en/blog/2026-07-26-rate-limit-isolation' },
