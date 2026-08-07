@@ -20,7 +20,7 @@ The scheduling half was carried over nearly verbatim:
 # total rounds = min(videos, captions)
 ```
 
-(Same rule as the `(r-1+d-1) % N` from the previous post; there `d` was 1-based.)
+(Same rule as the `(r-1+d-1) % N` from the previous post; there `d` was 1-based. The loop index counts from 0 while video numbers and "which device" are 1-based to a human — no conflict: `d=0` *is* the first device.)
 
 What actually differed was **how the result gets into the platform**.
 
