@@ -56,6 +56,7 @@ export default defineConfig({
               text: '文章',
               items: [
                 { text: '全部文章', link: '/blog/' },
+                { text: '把 1500 行自动化删掉：像素阈值的隐式依赖', link: '/blog/2026-08-06-deleting-screen-automation' },
                 { text: '批量发布的难点是记账：排期设计', link: '/blog/2026-07-31-batch-publish-scheduling' },
                 { text: '用真实订单做 Ground Truth', link: '/blog/2026-07-28-ground-truth-conversion' },
                 { text: 'dHash 前置去重降本 8 倍', link: '/blog/2026-07-27-dhash-prefilter' },
@@ -98,6 +99,7 @@ export default defineConfig({
               text: 'Posts',
               items: [
                 { text: 'All posts', link: '/en/blog/' },
+                { text: 'Deleting the automation: a screen in the threshold', link: '/en/blog/2026-08-06-deleting-screen-automation' },
                 { text: 'Batch publishing is a bookkeeping problem', link: '/en/blog/2026-07-31-batch-publish-scheduling' },
                 { text: 'Real orders as conversion ground truth', link: '/en/blog/2026-07-28-ground-truth-conversion' },
                 { text: 'An O(1) perceptual hash cuts vision cost 8×', link: '/en/blog/2026-07-27-dhash-prefilter' },
